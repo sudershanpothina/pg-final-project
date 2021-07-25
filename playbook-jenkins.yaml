@@ -47,3 +47,9 @@
       loop:
         - jenkins
         - docker
+
+    - name: add jenkins user to docker group
+      user:
+        name: jenkins
+        groups: docker
+        append: yes
