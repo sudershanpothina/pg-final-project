@@ -32,5 +32,5 @@ spec:
           resources:
             limits:
               cpu: 500m
-            request:
+            requests:
               cpu: 200m
