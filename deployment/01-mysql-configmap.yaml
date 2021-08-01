@@ -12,7 +12,6 @@ data:
       `email` varchar(50) DEFAULT NULL,
       PRIMARY KEY (`id`)
     ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
-
     INSERT INTO `userinfo` VALUES (1,'Tony Stark','tonystark001@hotmail.com'),(2,'Peter Parker','perterparker@gmail.com');
 kind: ConfigMap
 metadata:

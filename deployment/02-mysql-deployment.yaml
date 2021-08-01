@@ -17,6 +17,13 @@ spec:
       containers:
         - image: mysql/mysql-server:latest
           name: mysql
+          env:
+            - name: MYSQL_HOST
+              value: mysql
+            - name: MYSQL_DB
+              value: userdb
+            - name: MYSQL_USERNAME
+              value: user001
           envFrom:
             - secretRef:
                 name: dbsecret
