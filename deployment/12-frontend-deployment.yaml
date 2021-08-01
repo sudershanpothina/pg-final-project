@@ -29,5 +29,8 @@ spec:
           envFrom:
             - secretRef:
                 name: dbsecret
-
-          resources: {}
+          resources:
+            limits:
+              cpu: 500m
+            request:
+              cpu: 200m
