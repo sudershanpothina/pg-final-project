@@ -17,7 +17,7 @@ spec:
       imagePullSecrets:
         - name: regcred
       containers:
-        - image: sdrshnrck/pg-sl-fronend:5
+        - image: sdrshnrcks/pg-sl-fronend:5
           name: pg-sl-fronend
           env:
             - name: MYSQL_HOST
