@@ -1,5 +1,6 @@
-- hosts: localhost
+- hosts: kubernetes
   become: yes
+  remote_user: ubuntu
   tasks:
     - name: update
       apt:
@@ -16,7 +17,7 @@
       apt_repository:
         repo: deb http://apt.kubernetes.io/ kubernetes-xenial main
         state: present
-    - name: install containerd kubectl
+    - name: install packages
       apt:
         name: "{{ item }}"
         state: present

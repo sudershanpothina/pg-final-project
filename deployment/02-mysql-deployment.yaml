@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: backend
+  name: backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+        - image: mysql/mysql-server:latest
+          name: mysql
+          envFrom:
+            - secretRef:
+                name: dbsecret
+          volumeMounts:
+            - name: sqlscript
+              mountPath: "/docker-entrypoint-initdb.d"
+        volumes:
+          - name: sqlscript
+            configMap:
+              name: sqlscript

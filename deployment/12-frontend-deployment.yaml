@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: frontend
+  name: frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      imagePullSecrets:
+        - name: regcred
+      containers:
+        - image: sdrshnrck/pg-sl-fronend:5
+          name: pg-sl-fronend
+          env:
+            - name: MYSQL_HOST
+              value: mysql
+            - name: MYSQL_DB
+              value: userdb
+            - name: MYSQL_USERNAME
+              value: user001
+          envFrom:
+            - secretRef:
+                name: dbsecret
+
+          resources: {}

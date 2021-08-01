@@ -3,32 +3,34 @@
 # create key pair in EC2 section
 # create subnet in the region
 # get the image number from launch ec2 section
+#  [localhost]
+#  localhost ansible_connection=local ansible_python_interpreter=python
 # ssh-add mykey.pem
 - hosts: localhost
   tasks:
+#    - ec2:
+#          key_name: mykey
+#          instance_type: t2.medium
+#          image: ami-00399ec92321828f5
+#          wait: yes
+#          group: default # security group
+#          count: 1
+#          vpc_subnet_id: subnet-097e6f9cbffc5754c
+#          region: us-east-2
+#          assign_public_ip: yes
+#          instance_tags:
+#              type: jenkins
+#      name: jenkins
     - ec2:
           key_name: mykey
           instance_type: t2.medium
           image: ami-00399ec92321828f5
           wait: yes
           group: default # security group
-          count: 1
+          count: 2
           vpc_subnet_id: subnet-097e6f9cbffc5754c
           region: us-east-2
           assign_public_ip: yes
           instance_tags:
-              type: jenkins
-      name: jenkins
-#    - ec2:
-#          key_name: mykey
-#          instance_type: t2.micro
-#          image: ami-09e67e426f25ce0d7
-#          wait: yes
-#          group: default # security group
-#          count: 2
-#          vpc_subnet_id: subnet-0ded30cdc4b306454
-#          region: us-east-1
-#          assign_public_ip: no
-#          instance_tags:
-#              type: kubernetes
-#      name: kubernetes
+              type: kubernetes
+      name: kubernetes
