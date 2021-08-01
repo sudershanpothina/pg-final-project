@@ -23,7 +23,7 @@ spec:
           volumeMounts:
             - name: sqlscript
               mountPath: "/docker-entrypoint-initdb.d"
-        volumes:
-          - name: sqlscript
-            configMap:
-              name: sqlscript
+      volumes:
+        - name: sqlscript
+          configMap:
+            name: sqlscript
